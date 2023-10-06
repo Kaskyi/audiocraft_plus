@@ -1,3 +1,48 @@
+# Kaskyi / audiocraft_plus
+0. Set up google cloud
+
+```txt
+#Add firewall rule
+
+Direction
+Ingress
+
+Action 
+on matchAllow
+
+Source filters
+IP ranges
+0.0.0.0/0
+
+Protocols and ports
+tcp:7860
+
+```
+
+1. Install on Cloud via ssh
+```shell
+# general
+sudo apt install git python3 python3-pip python-is-python3
+sudo apt install --no-install-recommends google-perftools
+
+# drivers
+curl https://raw.githubusercontent.com/GoogleCloudPlatform/compute-gpu-installation/main/linux/install_gpu_driver.py --output install_gpu_driver.py
+sudo python3 install_gpu_driver.py
+
+#clone
+git clone https://github.com/Kaskyi/audiocraft_plus.git
+cd audiocraft_plus
+
+#deps
+pip install 'torch>=2.0'
+pip install -r requirements.txt
+```
+
+2. Run
+```shell
+python app.py --listen 0.0.0.0
+```
+
 # AudioCraft Plus
 ![docs badge](https://github.com/facebookresearch/audiocraft/workflows/audiocraft_docs/badge.svg)
 ![linter badge](https://github.com/facebookresearch/audiocraft/workflows/audiocraft_linter/badge.svg)
