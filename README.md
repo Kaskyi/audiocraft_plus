@@ -32,10 +32,12 @@ sudo python3 install_gpu_driver.py
 #clone
 git clone https://github.com/Kaskyi/audiocraft_plus.git
 cd audiocraft_plus
+git submodule update --init --recursive
 
 #deps
 pip install 'torch>=2.0'
 pip install -r requirements.txt
+pip install --force-reinstall --no-deps --pre xformers
 ```
 
 2. Run
